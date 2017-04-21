@@ -13,7 +13,10 @@ namespace ToDoList.Controllers
     public class TarefaController : ApiController
     {
         private Context db = new Context();
-
+        /// <summary>
+        /// /Get
+        /// </summary>
+        /// <returns></returns>
         public IQueryable<TarefaDTO> GetTarefas()
         {
             var model = db.Tarefa.AsQueryable();
@@ -21,6 +24,11 @@ namespace ToDoList.Controllers
             return model.Select(TarefaDTO.SELECT).Where(x => x.DataExclusao == null).OrderBy(x => x.Status);
         }
 
+        /// <summary>
+        /// Get/_id
+        /// </summary>
+        /// <param name="id">Id Tarefa</param>
+        /// <returns></returns>
         [ResponseType(typeof(TarefaDTO))]
         public async Task<IHttpActionResult> GetTarefa(int id)
         {
@@ -33,6 +41,12 @@ namespace ToDoList.Controllers
             return Ok(model);
         }
 
+        /// <summary>
+        /// Put/_id
+        /// </summary>
+        /// <param name="id">Id Tarefa</param>
+        /// <param name="model">Tarefa</param>
+        /// <returns></returns>
         public async Task<IHttpActionResult> PutTarefa(int id, Tarefa model)
         {
             model.DataConclusao = model.Status == true ? (DateTime?)DateTime.Now : null;
@@ -68,6 +82,11 @@ namespace ToDoList.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Post/_id
+        /// </summary>
+        /// <param name="model">Tarefa</param>
+        /// <returns></returns>
         [ResponseType(typeof(TarefaDTO))]
         public async Task<IHttpActionResult> PostTarefa(Tarefa model)
         {
@@ -87,6 +106,11 @@ namespace ToDoList.Controllers
             return CreatedAtRoute("DefaultApi", new { id = model.Id }, model);
         }
 
+        /// <summary>
+        /// Delete/_id
+        /// </summary>
+        /// <param name="id">Id Tarefa</param>
+        /// <returns></returns>
         [ResponseType(typeof(TarefaDTO))]
         public async Task<IHttpActionResult> DeleteTarefa(int id)
         {
