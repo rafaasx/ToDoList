@@ -36,6 +36,7 @@ namespace ToDoList.Controllers
         public async Task<IHttpActionResult> PutTarefa(int id, Tarefa model)
         {
             model.DataConclusao = model.Status == true ? (DateTime?)DateTime.Now : null;
+            model.DataEdicao = DateTime.Now;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
