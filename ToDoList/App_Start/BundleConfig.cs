@@ -22,7 +22,18 @@ namespace ToDoList
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/font-awesome.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                            "~/Scripts/angular.js",
+                            "~/Scripts/angular-route.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular-app").Include(
+                "~/Scripts/app/*.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ui-bootstrap").Include(
+                                  "~/Scripts/angular-ui/ui-bootstrap-tpls.js"));
         }
     }
 }

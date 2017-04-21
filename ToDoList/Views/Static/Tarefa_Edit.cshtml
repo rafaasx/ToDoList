@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+    <h2>Tarefa</h2>
+    <form name="theForm">
+        <div class="form-horizontal">
+            <ul id="validationSummary"></ul>
+            <div class="form-group">
+                <label for="Titulo" class = "control-label col-md-2"> Titulo </label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="data.Titulo" id="Titulo"  class="form-control"/>
+                    <div id="validation_for_Titulo"></div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="Descricao" class = "control-label col-md-2"> Descricao </label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="data.Descricao" id="Descricao"  class="form-control"/>
+                    <div id="validation_for_Descricao"></div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="DataCriacao" class = "control-label col-md-2"> DataCriacao </label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="data.DataCriacao" id="DataCriacao"  class="form-control"/>
+                    <div id="validation_for_DataCriacao"></div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="DataConclusao" class = "control-label col-md-2"> DataConclusao </label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="data.DataConclusao" id="DataConclusao"  class="form-control"/>
+                    <div id="validation_for_DataConclusao"></div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="DataExclusao" class = "control-label col-md-2"> DataExclusao </label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="data.DataExclusao" id="DataExclusao"  class="form-control"/>
+                    <div id="validation_for_DataExclusao"></div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="DataEdicao" class = "control-label col-md-2"> DataEdicao </label>
+                <div class="col-md-10">
+                    <input type="text" ng-model="data.DataEdicao" id="DataEdicao"  class="form-control"/>
+                    <div id="validation_for_DataEdicao"></div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="Status" class = "control-label col-md-2"> Status </label>
+                <div class="col-md-10">
+                    <input type="checkbox" ng-model="data.Status" id="Status"  class="form-control"/>
+                    <div id="validation_for_Status"></div>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Save" class="btn btn-default" ng-click="save()" />
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    <div>
+        <a href="#/Tarefa">Back to List</a>
+    </div>
