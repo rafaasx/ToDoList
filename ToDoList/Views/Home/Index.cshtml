@@ -1,11 +1,20 @@
-﻿<div ng-controller="TarefaController">
-    <h2>Tarefas</h2>
+﻿<div ng-controller="TarefaController" class="">
+    <h2 class="text-center">Tarefas</h2>
     <p></p>
-
-    <div class="list-group col-sm-6">
+    
+    <div class="list-group col-sm-6  col-sm-offset-3">
         <div class="list-group-item">
-            <input type="text" class="form-control" id="Titulo" placeholder="Título" ng-model="task.Titulo">
-            <textarea class="form-control" rows="5" id="Descricao" ng-model="task.Descricao" placeholder="Descrição"></textarea>
+            <form name="form">
+                <div class="form-group" ng-class="{'has-error': form.Titulo.$invalid && !form.Titulo.$pristine}">
+                    <input type="text" class="form-control" id="Titulo" name="Titulo" placeholder="Título" ng-model="task.Titulo" required maxlength="50">
+                    <div>
+                        <p ng-show="form.Titulo.$invalid && !form.Titulo.$pristine" class="help-block">O título é obrigatório!</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" id="Descricao" ng-model="task.Descricao" placeholder="Descrição" maxlength="250"></textarea>
+                </div>
+            </form>
             <div class="text-right">
                 <button type="button" class="btn btn-success" aria-label="Bold" ng-click="save()"><i class="fa fa-check" ng-class="{'fa fa-check' : task.Id > 0, 'fa fa-plus' : task.Id == undefined}" aria-hidden="true"></i></button>
             </div>
@@ -14,7 +23,7 @@
         <div class="list-group-item" ng-repeat="item in data" ng-class="{'list-group-item-info': item.Status}">
             <div class="form-group" ng-click="toggle(item)">
                 <h5><i aria-hidden="true" ng-class="{'fa fa-circle-o' : !item.Status, 'fa fa-check-circle-o' : item.Status}"></i> {{item.Titulo}}</h5>
-                <p>{{item.Descricao}}</p>
+                <pre style="border: 0;background-color:transparent">{{item.Descricao}}</pre>
             </div>
             <div class="text-right">
                 <button type="button" class="btn btn-success" aria-label="Bold" ng-click="edit(item)"><i class="fa fa-pencil" aria-hidden="true"></i></button>

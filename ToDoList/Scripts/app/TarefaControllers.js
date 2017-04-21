@@ -46,6 +46,7 @@
                                 $scope.get();
                             });
                     }
+                    $scope.form.$setPristine();
                 }
 
                 $scope.get();
