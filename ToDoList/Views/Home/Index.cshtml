@@ -16,10 +16,9 @@
                 </div>
             </form>
             <div class="text-right">
-                <button type="button" class="btn btn-success" aria-label="Bold" ng-click="save()"><i class="fa fa-check" ng-class="{'fa fa-check' : task.Id > 0, 'fa fa-plus' : task.Id == undefined}" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-success" aria-label="Bold" ng-click="save()" ng-disabled="form.$invalid"><i class="fa fa-check" ng-class="{'fa fa-check' : task.Id > 0, 'fa fa-plus' : task.Id == undefined}" aria-hidden="true"></i></button>
             </div>
         </div>
-
         <div class="list-group-item" ng-repeat="item in data" ng-class="{'list-group-item-info': item.Status}">
             <div class="form-group" ng-click="toggle(item)">
                 <h5><i aria-hidden="true" ng-class="{'fa fa-circle-o' : !item.Status, 'fa fa-check-circle-o' : item.Status}"></i> {{item.Titulo}}</h5>
